@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hệ Thống Thi Trắc Nghiệm Trực Tuyến</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- MathJax để hiển thị công thức toán học -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  </head>
+  <body>
+    <!-- Trang chào mừng -->
+    <section id="welcome-screen">
+      <h1>Chào mừng đến với Kỳ Thi Đánh Giá Năng Lực</h1>
+      <p>Hãy đọc kỹ hướng dẫn dưới đây trước khi làm bài:</p>
+      <ul>
+        <li>Bài thi có 20 câu hỏi được lấy ngẫu nhiên từ ngân hàng đề.</li>
+        <li>Mỗi câu hỏi có 4 lựa chọn, chỉ có 1 đáp án đúng.</li>
+        <li>Đối với các câu hỏi có công thức toán học, hệ thống sẽ sử dụng MathJax để hiển thị.</li>
+        <li>Một số câu có hình ảnh minh họa.</li>
+        <li>Bạn có thể chuyển qua lại giữa các câu hỏi bằng nút "Câu trước" và "Câu tiếp theo".</li>
+        <li>Có đồng hồ đếm ngược thời gian làm bài.</li>
+        <li>Sau khi nộp bài, bạn có thể kiểm tra đáp án từng câu một và xem tổng hợp kết quả.</li>
+      </ul>
+      <button id="start-quiz">Bắt đầu thi</button>
+    </section>
+
+    <!-- Màn hình thi -->
+    <section id="quiz-container" class="hidden">
+      <div class="timer">
+        Thời gian còn lại:
+        <span id="time-remaining">--:--</span>
+      </div>
+      <div id="question-area">
+        <!-- Câu hỏi sẽ được render qua JavaScript -->
+      </div>
+      <div class="navigation">
+        <button id="prev-question">Câu trước</button>
+        <button id="next-question">Câu tiếp theo</button>
+      </div>
+      <button id="submit-quiz" class="submit-button">Nộp bài thi</button>
+    </section>
+
+    <!-- Màn hình kết quả và xem lại -->
+    <section id="result-container" class="hidden">
+      <h2>Kết quả bài thi</h2>
+      <p>Bạn đạt: <span id="score"></span> / <span id="total-questions"></span></p>
+      <!-- Phần xem lại câu hỏi -->
+      <div id="review-area">
+        <!-- Một câu hỏi được hiển thị một lần trong chế độ xem lại -->
+      </div>
+      <div id="review-navigation" class="navigation">
+        <button id="prev-review">Câu trước</button>
+        <button id="next-review">Câu tiếp theo</button>
+      </div>
+      <!-- Phần tổng hợp kết quả từ tất cả các lượt thi -->
+      <div id="aggregated-results">
+        <!-- Tổng hợp các kết quả sẽ được hiển thị tại đây -->
+      </div>
+      <button id="retry-quiz" class="retry-button">Làm lại bài thi</button>
+    </section>
+
+    <!-- Import ngân hàng đề thi trước, sau đó là script.js -->
+    <script src="exam-bank.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
